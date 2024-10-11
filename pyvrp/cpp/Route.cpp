@@ -172,7 +172,8 @@ size_t Route::endDepot() const { return endDepot_; }
 
 bool Route::isFeasible() const
 {
-    return !hasExcessLoad() && !hasTimeWarp() && !hasExcessDistance();
+    return !hasExcessLoad() && !hasTimeWarp() && !hasExcessDistance()
+           && !hasCrossZone;
 }
 
 bool Route::hasExcessLoad() const { return excessLoad_ > 0; }
@@ -180,6 +181,18 @@ bool Route::hasExcessLoad() const { return excessLoad_ > 0; }
 bool Route::hasExcessDistance() const { return excessDistance_ > 0; }
 
 bool Route::hasTimeWarp() const { return timeWarp_ > 0; }
+
+bool Route::hasCrossZone() const
+{
+    /*
+    int firstClientZone = client.zone;
+    for(auto eachClient: clients){
+        if(eachClient.zone!=firstClientZone) return true;
+    }
+    */
+
+    return false;
+}
 
 bool Route::operator==(Route const &other) const
 {

@@ -210,6 +210,11 @@ public:
      */
     [[nodiscard]] bool hasTimeWarp() const;
 
+    /**
+     * Returns whether clients zone has cross zone
+     */
+    [[nodiscard]] bool hasCrossZone() const;
+
     bool operator==(Route const &other) const;
 
     Route() = delete;
