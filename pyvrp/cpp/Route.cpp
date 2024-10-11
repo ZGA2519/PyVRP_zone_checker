@@ -49,7 +49,10 @@ Route::Route(ProblemData const &data, Visits visits, size_t const vehicleType)
 
         prevClient = client;
     }
-
+    for (auto &client : data.clients())
+    {
+        clients_zone.push_back(client.zone);
+    }
     auto const last = visits_.empty() ? startDepot_ : visits_.back();
     distance_ += distances(last, endDepot_);
     distanceCost_ = vehType.unitDistanceCost * static_cast<Cost>(distance_);
@@ -172,7 +175,8 @@ size_t Route::endDepot() const { return endDepot_; }
 
 bool Route::isFeasible() const
 {
-    return !hasExcessLoad() && !hasTimeWarp() && !hasExcessDistance();
+    return !hasExcessLoad() && !hasTimeWarp() && !hasExcessDistance()
+           && !hasCrossZone();
 }
 
 bool Route::hasExcessLoad() const { return excessLoad_ > 0; }
@@ -180,6 +184,18 @@ bool Route::hasExcessLoad() const { return excessLoad_ > 0; }
 bool Route::hasExcessDistance() const { return excessDistance_ > 0; }
 
 bool Route::hasTimeWarp() const { return timeWarp_ > 0; }
+bool Route::hasCrossZone() const
+{
+    if (clients_zone.size() == 0)
+        return false;
+    int start = clients_zone[0];
+    for (const int z : clients_zone)
+    {
+        if (z != start)
+            return true;
+    }
+    return false;
+}
 
 bool Route::operator==(Route const &other) const
 {

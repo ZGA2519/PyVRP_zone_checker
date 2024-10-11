@@ -35,7 +35,8 @@ ProblemData::Client::Client(Coordinate x,
                             Cost prize,
                             bool required,
                             std::optional<size_t> group,
-                            std::string name)
+                            std::string name,
+                            int zone)
     : x(x),
       y(y),
       delivery(delivery),
@@ -47,7 +48,8 @@ ProblemData::Client::Client(Coordinate x,
       prize(prize),
       required(required),
       group(group),
-      name(duplicate(name.data()))
+      name(duplicate(name.data())),
+      zone(zone)
 {
     if (delivery < 0)
         throw std::invalid_argument("delivery amount must be >= 0.");
@@ -86,7 +88,8 @@ ProblemData::Client::Client(Client const &client)
       prize(client.prize),
       required(client.required),
       group(client.group),
-      name(duplicate(client.name))
+      name(duplicate(client.name)),
+      zone(client.zone)
 {
 }
 
@@ -102,7 +105,8 @@ ProblemData::Client::Client(Client &&client)
       prize(client.prize),
       required(client.required),
       group(client.group),
-      name(client.name)  // we can steal
+      name(client.name),  // we can steal
+      zone(client.zone)
 {
     client.name = nullptr;  // stolen
 }
@@ -123,7 +127,8 @@ bool ProblemData::Client::operator==(Client const &other) const
         && prize == other.prize
         && required == other.required
         && group == other.group
-        && std::strcmp(name, other.name) == 0;
+        && std::strcmp(name, other.name) == 0
+        && zone == other.zone;
     // clang-format on
 }
 

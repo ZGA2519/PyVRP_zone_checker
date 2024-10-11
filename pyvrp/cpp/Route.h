@@ -40,7 +40,7 @@ class Route
     Duration startTime_ = 0;       // (earliest) start time of this route
     Duration slack_ = 0;           // Total time slack on this route
     Cost prizes_ = 0;              // Total value of prizes on this route
-
+    std::vector<int> clients_zone = {};
     std::pair<double, double> centroid_;  // Route center
     VehicleType vehicleType_;             // Type of vehicle
     Depot startDepot_;                    // Assigned start depot
@@ -209,6 +209,11 @@ public:
      * constraints.
      */
     [[nodiscard]] bool hasTimeWarp() const;
+
+    /*
+     * Returns when All Clients is not in the same zone
+     */
+    [[nodiscard]] bool hasCrossZone() const;
 
     bool operator==(Route const &other) const;
 

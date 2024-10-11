@@ -169,7 +169,7 @@ public:
         bool const required;         // Must client be in solution?
         std::optional<size_t> const group;  // Optional client group membership
         char const *name;                   // Client name (for reference)
-
+        int zone;
         Client(Coordinate x,
                Coordinate y,
                Load delivery = 0,
@@ -181,7 +181,8 @@ public:
                Cost prize = 0,
                bool required = true,
                std::optional<size_t> group = std::nullopt,
-               std::string name = "");
+               std::string name = "",
+               int zone = 0);
 
         bool operator==(Client const &other) const;
 
