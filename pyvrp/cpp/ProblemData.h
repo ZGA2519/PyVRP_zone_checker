@@ -169,7 +169,8 @@ public:
         bool const required;         // Must client be in solution?
         std::optional<size_t> const group;  // Optional client group membership
         char const *name;                   // Client name (for reference)
-        int zone;
+        int zone;                           // Zone of client
+
         Client(Coordinate x,
                Coordinate y,
                Load delivery = 0,

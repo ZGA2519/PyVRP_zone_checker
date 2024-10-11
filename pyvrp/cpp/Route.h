@@ -210,8 +210,8 @@ public:
      */
     [[nodiscard]] bool hasTimeWarp() const;
 
-    /*
-     * Returns when All Clients is not in the same zone
+    /**
+     * Returns whether clients zone has cross zone
      */
     [[nodiscard]] bool hasCrossZone() const;
 
