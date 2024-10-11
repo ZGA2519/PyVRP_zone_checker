@@ -1,5 +1,24 @@
+# Ignore everything by default
 *
-.*
-!pyvrp
-!pyvrp/**
+
+# Don't ignore the .gitignore file
 !.gitignore
+
+# Allow the pyvrp project and all its files
+!pyvrp/
+!pyvrp/**
+
+# Ignore the virtual environment except for specific folders
+.venv/
+!.venv/lib/
+!.venv/lib/python3.10/
+!.venv/lib/python3.10/site-packages/
+!.venv/lib/python3.10/site-packages/vrplib/
+!.venv/lib/python3.10/site-packages/vrplib/**
+
+# Ignore common unnecessary files
+*.log                  # Log files
+*.py[cod]              # Compiled Python files
+__pycache__/           # Python cache
+*.swp                  # Swap files created by some text editors
+.DS_Store              # macOS-specific files
