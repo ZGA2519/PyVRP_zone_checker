@@ -76,7 +76,8 @@ PYBIND11_MODULE(_pyvrp, m)
                       pyvrp::Cost,
                       bool,
                       std::optional<size_t>,
-                      char const *>(),
+                      char const *,
+                      int>(),
              py::arg("x"),
              py::arg("y"),
              py::arg("delivery") = 0,
@@ -89,7 +90,8 @@ PYBIND11_MODULE(_pyvrp, m)
              py::arg("required") = true,
              py::arg("group") = py::none(),
              py::kw_only(),
-             py::arg("name") = "")
+             py::arg("name") = "",
+             py::arg("zone") = 0)
         .def_readonly("x", &ProblemData::Client::x)
         .def_readonly("y", &ProblemData::Client::y)
         .def_readonly("delivery", &ProblemData::Client::delivery)
@@ -104,6 +106,7 @@ PYBIND11_MODULE(_pyvrp, m)
         .def_readonly("name",
                       &ProblemData::Client::name,
                       py::return_value_policy::reference_internal)
+        .def_readonly("zone", &ProblemData::Client::zone)
         .def(py::self == py::self)  // this is __eq__
         .def(py::pickle(
             [](ProblemData::Client const &client) {  // __getstate__
@@ -118,7 +121,8 @@ PYBIND11_MODULE(_pyvrp, m)
                                       client.prize,
                                       client.required,
                                       client.group,
-                                      client.name);
+                                      client.name,
+                                      client.zone);
             },
             [](py::tuple t) {  // __setstate__
                 ProblemData::Client client(
@@ -133,7 +137,8 @@ PYBIND11_MODULE(_pyvrp, m)
                     t[8].cast<pyvrp::Cost>(),             // prize
                     t[9].cast<bool>(),                    // required
                     t[10].cast<std::optional<size_t>>(),  // group
-                    t[11].cast<std::string>());           // name
+                    t[11].cast<std::string>(),            // name
+                    t[12].cast<int>());                   // zone
 
                 return client;
             }))

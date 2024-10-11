@@ -263,6 +263,12 @@ class _InstanceParser:
         # in keeping them.
         return [group for group in raw_groups if len(group) > 1]
 
+    def zone(self) -> list[int]:
+        if "zone" not in self.instance:
+            return []
+
+        return [zone for zone in self.instance["zone"]]
+
 
 class _ProblemDataBuilder:
     """
@@ -326,6 +332,7 @@ class _ProblemDataBuilder:
         release_times = self.parser.release_times()
         prizes = self.parser.prizes()  # we interpret a zero-prize client as
         required = np.isclose(prizes, 0)  # required in the benchmark instances
+        zones = self.parser.zone()
 
         return [
             Client(
@@ -340,6 +347,7 @@ class _ProblemDataBuilder:
                 prize=prizes[idx],
                 required=required[idx] and idx2group[idx] is None,
                 group=idx2group[idx],
+                zone=zones[idx],
             )
             for idx in range(self.parser.num_depots, num_locs)
         ]

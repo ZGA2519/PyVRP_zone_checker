@@ -195,6 +195,7 @@ class Model:
         group: Optional[ClientGroup] = None,
         *,
         name: str = "",
+        zone: int = 0,
     ) -> Client:
         """
         Adds a client with the given attributes to the model. Returns the
@@ -232,6 +233,7 @@ class Model:
             required=required,
             group=group_idx,
             name=name,
+            zone=zone,
         )
 
         if group_idx is not None:
@@ -325,6 +327,7 @@ class Model:
         profile: Optional[Profile] = None,
         *,
         name: str = "",
+        zone: int = 0,
     ) -> VehicleType:
         """
         Adds a vehicle type with the given attributes to the model. Returns the
