@@ -197,18 +197,6 @@ bool Route::hasCrossZone() const
     return false;
 }
 
-bool Route::hasCrossZone() const
-{
-    /*
-    int firstClientZone = client.zone;
-    for(auto eachClient: clients){
-        if(eachClient.zone!=firstClientZone) return true;
-    }
-    */
-
-    return false;
-}
-
 bool Route::operator==(Route const &other) const
 {
     // First compare simple attributes, since that's a quick and cheap check.
