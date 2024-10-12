@@ -495,6 +495,9 @@ PYBIND11_MODULE(_pyvrp, m)
         .def("start_depot", &Route::startDepot, DOC(pyvrp, Route, startDepot))
         .def("end_depot", &Route::endDepot, DOC(pyvrp, Route, endDepot))
         .def("is_feasible", &Route::isFeasible, DOC(pyvrp, Route, isFeasible))
+        .def("has_cross_zone",
+             &Route::hasCrossZone,
+             DOC(pyvrp, Route, hasCrossZone))
         .def("has_excess_load",
              &Route::hasExcessLoad,
              DOC(pyvrp, Route, hasExcessLoad))
