@@ -40,12 +40,11 @@ class Route
     Duration startTime_ = 0;       // (earliest) start time of this route
     Duration slack_ = 0;           // Total time slack on this route
     Cost prizes_ = 0;              // Total value of prizes on this route
-    std::vector<int> clients_zone = {};
     std::pair<double, double> centroid_;  // Route center
     VehicleType vehicleType_;             // Type of vehicle
     Depot startDepot_;                    // Assigned start depot
     Depot endDepot_;                      // Assigned end depot
-
+    std::vector<int> clients_zone_ = {};  // List of all clients zone
 public:
     [[nodiscard]] bool empty() const;
 
@@ -189,6 +188,8 @@ public:
      */
     [[nodiscard]] Depot endDepot() const;
 
+    [[nodiscard]] std::vector<int> clientsZone() const;
+
     /**
      * Returns whether this route is feasible.
      */
@@ -245,6 +246,30 @@ public:
           VehicleType vehicleType,
           Depot startDepot,
           Depot endDepot);
+
+    // new Constructor to use Later
+    Route(Visits visits,
+          Distance distance,
+          Cost distanceCost,
+          Distance excessDistance,
+          Load delivery,
+          Load pickup,
+          Load excessLoad,
+          Duration duration,
+          Cost durationCost,
+          Duration timeWarp,
+          Duration travel,
+          Duration service,
+          Duration wait,
+          Duration release,
+          Duration startTime,
+          Duration slack,
+          Cost prizes,
+          std::pair<double, double> centroid,
+          VehicleType vehicleType,
+          Depot startDepot,
+          Depot endDepot,
+          std::vector<int> clients_zone);
 };
 }  // namespace pyvrp
 
