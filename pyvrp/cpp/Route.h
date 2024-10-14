@@ -44,7 +44,7 @@ class Route
     VehicleType vehicleType_;             // Type of vehicle
     Depot startDepot_;                    // Assigned start depot
     Depot endDepot_;                      // Assigned end depot
-    std::vector<int> clients_zone_ = {};  // List of all clients zone
+    std::vector<int> clientsZone_ = {};   // List of all clients zone
 public:
     [[nodiscard]] bool empty() const;
 
@@ -225,27 +225,27 @@ public:
           VehicleType const vehicleType);
 
     // This constructor does *no* validation. Useful when unserialising objects.
-    Route(Visits visits,
-          Distance distance,
-          Cost distanceCost,
-          Distance excessDistance,
-          Load delivery,
-          Load pickup,
-          Load excessLoad,
-          Duration duration,
-          Cost durationCost,
-          Duration timeWarp,
-          Duration travel,
-          Duration service,
-          Duration wait,
-          Duration release,
-          Duration startTime,
-          Duration slack,
-          Cost prizes,
-          std::pair<double, double> centroid,
-          VehicleType vehicleType,
-          Depot startDepot,
-          Depot endDepot);
+    //     Route(Visits visits,
+    //           Distance distance,
+    //           Cost distanceCost,
+    //           Distance excessDistance,
+    //           Load delivery,
+    //           Load pickup,
+    //           Load excessLoad,
+    //           Duration duration,
+    //           Cost durationCost,
+    //           Duration timeWarp,
+    //           Duration travel,
+    //           Duration service,
+    //           Duration wait,
+    //           Duration release,
+    //           Duration startTime,
+    //           Duration slack,
+    //           Cost prizes,
+    //           std::pair<double, double> centroid,
+    //           VehicleType vehicleType,
+    //           Depot startDepot,
+    //           Depot endDepot);
 
     // new Constructor to use Later
     Route(Visits visits,
@@ -269,7 +269,7 @@ public:
           VehicleType vehicleType,
           Depot startDepot,
           Depot endDepot,
-          std::vector<int> clients_zone);
+          std::vector<int> clientsZone);
 };
 }  // namespace pyvrp
 

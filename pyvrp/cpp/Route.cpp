@@ -51,7 +51,7 @@ Route::Route(ProblemData const &data, Visits visits, size_t const vehicleType)
     }
     for (auto &client : data.clients())
     {
-        clients_zone_.push_back(client.zone);
+        clientsZone_.push_back(client.zone);
     }
     auto const last = visits_.empty() ? startDepot_ : visits_.back();
     distance_ += distances(last, endDepot_);
@@ -74,50 +74,50 @@ Route::Route(ProblemData const &data, Visits visits, size_t const vehicleType)
     release_ = ds.releaseTime();
 }
 
-Route::Route(Visits visits,
-             Distance distance,
-             Cost distanceCost,
-             Distance excessDistance,
-             Load delivery,
-             Load pickup,
-             Load excessLoad,
-             Duration duration,
-             Cost durationCost,
-             Duration timeWarp,
-             Duration travel,
-             Duration service,
-             Duration wait,
-             Duration release,
-             Duration startTime,
-             Duration slack,
-             Cost prizes,
-             std::pair<double, double> centroid,
-             size_t vehicleType,
-             size_t startDepot,
-             size_t endDepot)
-    : visits_(std::move(visits)),
-      distance_(distance),
-      distanceCost_(distanceCost),
-      excessDistance_(excessDistance),
-      delivery_(delivery),
-      pickup_(pickup),
-      excessLoad_(excessLoad),
-      duration_(duration),
-      durationCost_(durationCost),
-      timeWarp_(timeWarp),
-      travel_(travel),
-      service_(service),
-      wait_(wait),
-      release_(release),
-      startTime_(startTime),
-      slack_(slack),
-      prizes_(prizes),
-      centroid_(centroid),
-      vehicleType_(vehicleType),
-      startDepot_(startDepot),
-      endDepot_(endDepot)
-{
-}
+// Route::Route(Visits visits,
+//              Distance distance,
+//              Cost distanceCost,
+//              Distance excessDistance,
+//              Load delivery,
+//              Load pickup,
+//              Load excessLoad,
+//              Duration duration,
+//              Cost durationCost,
+//              Duration timeWarp,
+//              Duration travel,
+//              Duration service,
+//              Duration wait,
+//              Duration release,
+//              Duration startTime,
+//              Duration slack,
+//              Cost prizes,
+//              std::pair<double, double> centroid,
+//              size_t vehicleType,
+//              size_t startDepot,
+//              size_t endDepot)
+//     : visits_(std::move(visits)),
+//       distance_(distance),
+//       distanceCost_(distanceCost),
+//       excessDistance_(excessDistance),
+//       delivery_(delivery),
+//       pickup_(pickup),
+//       excessLoad_(excessLoad),
+//       duration_(duration),
+//       durationCost_(durationCost),
+//       timeWarp_(timeWarp),
+//       travel_(travel),
+//       service_(service),
+//       wait_(wait),
+//       release_(release),
+//       startTime_(startTime),
+//       slack_(slack),
+//       prizes_(prizes),
+//       centroid_(centroid),
+//       vehicleType_(vehicleType),
+//       startDepot_(startDepot),
+//       endDepot_(endDepot)
+// {
+// }
 // New constructor to use (not using yet)
 Route::Route(Visits visits,
              Distance distance,
@@ -140,7 +140,7 @@ Route::Route(Visits visits,
              size_t vehicleType,
              size_t startDepot,
              size_t endDepot,
-             std::vector<int> clients_zone)
+             std::vector<int> clientsZone)
     : visits_(std::move(visits)),
       distance_(distance),
       distanceCost_(distanceCost),
@@ -162,7 +162,7 @@ Route::Route(Visits visits,
       vehicleType_(vehicleType),
       startDepot_(startDepot),
       endDepot_(endDepot),
-      clients_zone_(std::move(clients_zone))
+      clientsZone_(std::move(clientsZone))
 {
 }
 
@@ -220,7 +220,7 @@ size_t Route::startDepot() const { return startDepot_; }
 
 size_t Route::endDepot() const { return endDepot_; }
 
-std::vector<int> Route::clientsZone() const { return clients_zone_; }
+std::vector<int> Route::clientsZone() const { return clientsZone_; }
 
 bool Route::isFeasible() const
 {
@@ -235,10 +235,10 @@ bool Route::hasExcessDistance() const { return excessDistance_ > 0; }
 bool Route::hasTimeWarp() const { return timeWarp_ > 0; }
 bool Route::hasCrossZone() const
 {
-    if (clients_zone_.size() == 0)
+    if (clientsZone_.size() == 0)
         return false;
-    int start = clients_zone_[0];
-    for (const int &z : clients_zone_)
+    int start = clientsZone_[0];
+    for (const int &z : clientsZone_)
     {
         if (z != start)
             return true;
@@ -257,7 +257,7 @@ bool Route::operator==(Route const &other) const
         && timeWarp_ == other.timeWarp_
         && vehicleType_ == other.vehicleType_
         && visits_ == other.visits_
-        && clients_zone_ == other.clients_zone_;
+        && clientsZone_ == other.clientsZone_;
     // clang-format on
 }
 
