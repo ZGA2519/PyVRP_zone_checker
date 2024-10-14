@@ -494,6 +494,7 @@ PYBIND11_MODULE(_pyvrp, m)
             "vehicle_type", &Route::vehicleType, DOC(pyvrp, Route, vehicleType))
         .def("start_depot", &Route::startDepot, DOC(pyvrp, Route, startDepot))
         .def("end_depot", &Route::endDepot, DOC(pyvrp, Route, endDepot))
+        .def("clients_zone", &Route::clientsZone)
         .def("is_feasible", &Route::isFeasible, DOC(pyvrp, Route, isFeasible))
         .def("has_cross_zone",
              &Route::hasCrossZone,
@@ -548,7 +549,8 @@ PYBIND11_MODULE(_pyvrp, m)
                                       route.centroid(),
                                       route.vehicleType(),
                                       route.startDepot(),
-                                      route.endDepot());
+                                      route.endDepot(),
+                                      route.clientsZone());
             },
             [](py::tuple t) {  // __setstate__
                 Route route(
@@ -572,7 +574,8 @@ PYBIND11_MODULE(_pyvrp, m)
                     t[17].cast<std::pair<double, double>>(),  // centroid
                     t[18].cast<size_t>(),                     // vehicle type
                     t[19].cast<size_t>(),                     // start depot
-                    t[20].cast<size_t>());                    // end depot
+                    t[20].cast<size_t>(),                     // end depot
+                    t[21].cast<std::vector<int>>());          // end depot
 
                 return route;
             }))
