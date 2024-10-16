@@ -53,6 +53,11 @@ Route::Route(ProblemData const &data, Visits visits, size_t const vehicleType)
     {
         clientsZone_.push_back(client.zone);
     }
+    // std::cout << "Routing";
+    // for(auto const &i : visits_){
+    //  std::cout << i << " ";
+    //}
+    // std::cout << std::endl;
     auto const last = visits_.empty() ? startDepot_ : visits_.back();
     distance_ += distances(last, endDepot_);
     distanceCost_ = vehType.unitDistanceCost * static_cast<Cost>(distance_);
@@ -237,10 +242,14 @@ bool Route::hasCrossZone() const
 {
     if (clientsZone_.size() == 0)
         return false;
-    int start = clientsZone_[0];
-    for (const int &z : clientsZone_)
+    if (visits_.size() == 0)
+        return false;
+    int start = clientsZone_[visits_[0] - 1];
+    for (const auto &z : visits_)
     {
-        if (z != start)
+        // std::cout << "st : " << start << " curr zone " << clientsZone_[z-1]
+        // << std::endl;
+        if (clientsZone_[z - 1] != start)
             return true;
     }
     return false;
