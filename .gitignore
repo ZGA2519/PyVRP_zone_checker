@@ -16,6 +16,10 @@
 !.venv/lib/python3.10/site-packages/vrplib/
 !.venv/lib/python3.10/site-packages/vrplib/**
 
+# Ignore compile files
+*.so
+*.pyd
+
 # Ignore common unnecessary files
 *.log                  # Log files
 *.py[cod]              # Compiled Python files
