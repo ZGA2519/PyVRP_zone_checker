@@ -128,6 +128,11 @@ public:
     [[nodiscard]] bool isFeasible() const;
 
     /**
+     * Whether this solution's routes coss zone
+     */
+    [[nodiscard]] bool hasCrossZone() const;
+
+    /**
      * Returns whether this solution is feasible w.r.t. the client group
      * restrictions.
      */

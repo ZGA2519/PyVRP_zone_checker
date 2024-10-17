@@ -54,23 +54,6 @@ SubPopulation::~SubPopulation()
 void SubPopulation::add(Solution const *solution,
                         CostEvaluator const &costEvaluator)
 {
-    // TODO: implement this lamda
-    // Check if the solution has a routes that cross zones.
-    // auto check_cross_zone =
-    //     [](const Solution &sol) -> bool
-    // {
-    //     return true;
-    //     std::vector<size_t> zones;
-    //     for (const auto &route : sol.routes())
-    //     {
-    //         for (const auto &zone : route.clientsZone())
-    //         {
-    //             // Check if the zone here in zones<vector> and return false
-    //             //  if not push to vector
-    //         }
-    //     }
-    //     // if all zone difference return true
-    // }
 
     // Copy the given solution into a new memory
     // location, and use that from now on.

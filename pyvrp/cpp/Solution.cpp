@@ -65,6 +65,11 @@ bool Solution::isFeasible() const
     // clang-format on
 }
 
+bool Solution::hasCrossZone() const
+{
+    // TODO: implement this
+}
+
 bool Solution::isGroupFeasible() const { return isGroupFeas_; }
 
 bool Solution::isComplete() const { return numMissingClients_ == 0; }
