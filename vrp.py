@@ -17,16 +17,16 @@ stop_criterion = MaxIterations(1000)
 
 # Solve the VRP
 solution = model.solve(stop=stop_criterion)
-# with open('output_vrp.txt', 'w') as f:
-#   feasible = str(solution.best.is_feasible())
-#   f.write(feasible)
-#   f.write('\n')
-#   distance = str(solution.best.distance())
-#   f.write(distance)
-#   f.write('\n')
-#   string = str(solution.best)
-#   # print(solution.best.routes())
-#   f.write(string)
+with open("output_vrp.txt", "w") as f:
+    feasible = str(solution.best.is_feasible())
+    f.write(feasible)
+    f.write("\n")
+    distance = str(solution.best.distance())
+    f.write(distance)
+    f.write("\n")
+    string = str(solution.best)
+    # print(solution.best.routes())
+    f.write(string)
 # Display the solution
 
 print(solution)

@@ -53,10 +53,14 @@ size_t Solution::numMissingClients() const { return numMissingClients_; }
 Routes const &Solution::routes() const { return routes_; }
 
 Neighbours const &Solution::neighbours() const { return neighbours_; }
-
 bool Solution::isFeasible() const
 {
     // clang-format off
+    for(const auto& route : routes()){
+        if(!route.isFeasible())
+            return false;
+    }
+    
     return !hasExcessLoad()
         && !hasTimeWarp()
         && !hasExcessDistance()
@@ -68,6 +72,7 @@ bool Solution::isFeasible() const
 bool Solution::hasCrossZone() const
 {
     // TODO: implement this
+    return false;
 }
 
 bool Solution::isGroupFeasible() const { return isGroupFeas_; }
