@@ -128,7 +128,7 @@ public:
     [[nodiscard]] bool isFeasible() const;
 
     /**
-     * Whether this solution's routes coss zone
+     * Whether this solution's routes cross zone
      */
     [[nodiscard]] bool hasCrossZone() const;
 

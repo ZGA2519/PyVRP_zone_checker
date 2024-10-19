@@ -633,6 +633,9 @@ PYBIND11_MODULE(_pyvrp, m)
         .def("is_feasible",
              &Solution::isFeasible,
              DOC(pyvrp, Solution, isFeasible))
+        .def("has_cross_zone",
+             &Solution::hasCrossZone,
+             DOC(pyvrp, Solution, hasCrossZone))
         .def("is_group_feasible",
              &Solution::isGroupFeasible,
              DOC(pyvrp, Solution, isGroupFeasible))

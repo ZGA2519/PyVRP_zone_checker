@@ -27,6 +27,7 @@ with open("output_vrp.txt", "w") as f:
     string = str(solution.best)
     # print(solution.best.routes())
     f.write(string)
-# Display the solution
 
+# Display the solution
+print("Solution is Feasible: " + str(solution.is_feasible()))
 print(solution)
