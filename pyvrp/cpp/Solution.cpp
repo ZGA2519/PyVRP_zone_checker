@@ -72,7 +72,7 @@ bool Solution::isFeasible() const
 
 bool Solution::hasCrossZone() const
 {
-    // TODO: implement this
+
     std::unordered_set<int> zoneSet;
     for (const auto &route : routes_)
     {
@@ -81,7 +81,7 @@ bool Solution::hasCrossZone() const
         int currzone
             = route.clientsZone()[route.visits()[0]
                                   - 1];  // since all route that we select need
-                                         // to be feastable(Same Zone) already.
+                                         // to be feasible(Same Zone) already.
                                          // We can select any in visits
         if (zoneSet.find(currzone) != zoneSet.end())
             return true;
