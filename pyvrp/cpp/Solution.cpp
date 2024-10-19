@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <fstream>
 #include <numeric>
-#include <unordered_map>
+#include <unordered_set>
 
 using pyvrp::Cost;
 using pyvrp::Distance;
@@ -64,6 +64,7 @@ bool Solution::isFeasible() const
     return !hasExcessLoad()
         && !hasTimeWarp()
         && !hasExcessDistance()
+        && !hasCrossZone()
         && isComplete()
         && isGroupFeasible();
     // clang-format on
@@ -72,6 +73,20 @@ bool Solution::isFeasible() const
 bool Solution::hasCrossZone() const
 {
     // TODO: implement this
+    std::unordered_set<int> zoneSet;
+    for (const auto &route : routes_)
+    {
+        if (route.clientsZone().size() == 0)
+            continue;
+        int currzone
+            = route.clientsZone()[route.visits()[0]
+                                  - 1];  // since all route that we select need
+                                         // to be feastable(Same Zone) already.
+                                         // We can select any in visits
+        if (zoneSet.find(currzone) != zoneSet.end())
+            return true;
+        zoneSet.insert(currzone);
+    }
     return false;
 }
 
