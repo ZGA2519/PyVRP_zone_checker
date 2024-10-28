@@ -5,7 +5,7 @@ Add zone checker to pyvrp
 # Forked Repo - [PyVRP]
 
 This is a fork of [PyVRP](https://github.com/PyVRP/PyVRP).  
-It includes modifications for Zone checher.
+It includes modifications for Zone checker.
 
 ## Usage
 you can add zone by add another section in .vrp file
