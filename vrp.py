@@ -9,7 +9,9 @@ from pyvrp.stop import MaxIterations  # or another stopping condition
 model = pyvrp.Model()
 
 # Process the file data vrp no time windows
-INSTANCE = read("data/vrpsmall.vrp", round_func="round")
+INSTANCE = read("data/vrpsmall_modified_2.vrp", round_func="round")
+# INSTANCE = read("data/vrpsmall_modified.vrp", round_func="round")
+# INSTANCE = read("data/vrpsmall.vrp", round_func="round")
 model = model.from_data(INSTANCE)
 
 # Define the stopping criterion (e.g., max 1000 iterations)

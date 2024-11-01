@@ -8,6 +8,10 @@
 !pyvrp/
 !pyvrp/**
 
+# Allow build and dist
+!dist
+!dist/**
+
 # Ignore the virtual environment except for specific folders
 .venv/
 !.venv/lib/
