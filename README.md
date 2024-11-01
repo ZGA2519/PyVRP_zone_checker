@@ -23,4 +23,4 @@ The route will be checked to ensure that every route does not have more than one
 [ZGA2519](https://github.com/ZGA2519) <br>
 [Teeraphat6509611809](github.com/Teeraphat6509611809) <br>
 [Kittithara6509611544](https://github.com/Kittithara6509611544) <br>
-[Chayatorn-Prukrattananapa)](https://github.com/Chayatorn-Prukrattananapa) <br>
+[Chayatorn-Prukrattananapa](https://github.com/Chayatorn-Prukrattananapa) <br>
