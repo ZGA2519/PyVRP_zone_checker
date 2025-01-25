@@ -1,20 +1,21 @@
 [tool.poetry]
-name = "pyvrp"
-version = "0.10.0a0"
-description = "A state-of-the-art vehicle routing problem solver."
+name = "pyvrp-zone-checker"
+version = "1.0.0"
+description = "`pyvrp-zone-checker` is a package wrapper for zone-checker in PyVRP"
 authors = [
-    "Niels Wouda <nielswouda@gmail.com>",
-    "Leon Lan <leon.lanyidong@gmail.com>",
-    "Wouter Kool <wouter.kool@ortec.com>",
+    "ZGA2519 <https://github.com/ZGA2519>",
+    "Teeraphat6509611809 <https://github.com/Teeraphat6509611809>",
+    "Kittithara6509611544 <https://github.com/Kittithara6509611544>",
+    "Chayatorn-Prukrattananapa <https://github.com/Chayatorn-Prukrattananapa>",
 ]
 license = "MIT"
 readme = "README.md"
-homepage = "https://pyvrp.org/"
-repository = "https://github.com/PyVRP/PyVRP"
+repository = "https://github.com/ZGA2519/PyVRP_zone_checker"
 keywords = [
     "vehicle routing problem",
     "hybrid genetic search",
     "metaheuristic",
+    "zone checker",
 ]
 include = [
     { path = "docs/", format = "sdist" },
