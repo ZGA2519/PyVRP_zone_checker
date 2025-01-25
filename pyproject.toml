@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyvrp-zone-checker"
-version = "1.0.0"
+version = "0.1.0"
 description = "`pyvrp-zone-checker` is a package wrapper for zone-checker in PyVRP"
 authors = [
     "ZGA2519 <https://github.com/ZGA2519>",
