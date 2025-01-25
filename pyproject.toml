@@ -3,14 +3,13 @@ name = "pyvrp-zone-checker"
 version = "0.1.0"
 description = "`pyvrp-zone-checker` is a package wrapper for zone-checker in PyVRP"
 authors = [
-    "ZGA2519 <https://github.com/ZGA2519>",
-    "Teeraphat6509611809 <https://github.com/Teeraphat6509611809>",
-    "Kittithara6509611544 <https://github.com/Kittithara6509611544>",
-    "Chayatorn-Prukrattananapa <https://github.com/Chayatorn-Prukrattananapa>",
+    "Phuripat Kongsakban <phuripat2519.work@gmail.com>",
+    "Chayatorn Prukrattananapa <chayatorn.pruk@gmail.com>",
+    "Teeraphat Siritham <teeraphat10221@gmail.com>",
+    "Kittithara Sutthaphirom <kittitara0303@gmail.com>",
 ]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/ZGA2519/PyVRP_zone_checker"
 keywords = [
     "vehicle routing problem",
     "hybrid genetic search",
@@ -43,10 +42,6 @@ classifiers = [
     "Topic :: Software Development",
     "Topic :: Scientific/Engineering",
 ]
-
-
-[tool.poetry.urls]
-"Tracker" = "https://github.com/PyVRP/PyVRP/issues"
 
 
 [tool.poetry.dependencies]
